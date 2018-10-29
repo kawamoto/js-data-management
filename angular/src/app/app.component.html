@@ -1,0 +1,9 @@
+<button (click)='getData()'>Get Data</button>
+<button (click)='getDataFromLocal()'>Get Data from local</button>
+<ul>
+  <li>
+    {{ data | json }}
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
