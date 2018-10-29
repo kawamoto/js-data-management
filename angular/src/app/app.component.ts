@@ -16,4 +16,8 @@ export class AppComponent {
       this.data = data;
     });
   }
+
+  getDataFromLocal() {
+    this.data = this.dataService.getDataFromLocal();
+  }
 }
