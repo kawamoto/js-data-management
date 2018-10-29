@@ -15,4 +15,8 @@ export class DataService {
       })
     );
   }
+
+  getDataFromLocal() {
+    return JSON.parse(this.storage.getItem(this.source));
+  }
 }
