@@ -7,9 +7,13 @@ import { Observable, of } from 'rxjs';
 export class DataService {
   storage = localStorage || window.localStorage;
   source = 'https://jsonplaceholder.typicode.com/todos/1';
+  data;
   constructor(private http: HttpClient) {}
 
   getData(): Observable<any> {
+    if (this.data) {
+      return of(this.data);
+    }
     const localData = this.getDataFromLocal();
     if (localData) {
       return of(localData);
@@ -18,13 +22,16 @@ export class DataService {
   }
 
   getDataFromLocal() {
-    return JSON.parse(this.storage.getItem(this.source));
+    const data = JSON.parse(this.storage.getItem(this.source));
+    this.data = data;
+    return data;
   }
 
   getDataFromRemote(): Observable<any> {
     return this.http.get(this.source).pipe(
       tap((data: any) => {
         this.storage.setItem(this.source, JSON.stringify(data));
+        this.data = data;
       })
     );
   }
