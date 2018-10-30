@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from './data/data.service';
+import { DataService, Todo } from './data/data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +7,12 @@ import { DataService } from './data/data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  data = null;
+  data: Todo;
 
   constructor(private dataService: DataService) {}
 
   getData() {
-    this.dataService.getData().subscribe((data: any) => {
+    this.dataService.getData().subscribe((data: Todo) => {
       this.data = data;
     });
   }
