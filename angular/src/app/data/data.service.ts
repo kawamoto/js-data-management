@@ -7,10 +7,10 @@ import { Observable, of } from 'rxjs';
 export class DataService {
   storage = localStorage || window.localStorage;
   source = 'https://jsonplaceholder.typicode.com/todos/1';
-  data;
+  data: Todo;
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<any> {
+  getData(): Observable<Todo> {
     if (this.data) {
       return of(this.data);
     }
@@ -27,12 +27,19 @@ export class DataService {
     return data;
   }
 
-  getDataFromRemote(): Observable<any> {
+  getDataFromRemote(): Observable<Todo> {
     return this.http.get(this.source).pipe(
-      tap((data: any) => {
+      tap((data: Todo) => {
         this.storage.setItem(this.source, JSON.stringify(data));
         this.data = data;
       })
     );
   }
+}
+
+export interface Todo {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
 }
