@@ -4,6 +4,7 @@ import './App.css';
 class App extends Component {
   storage = localStorage || window.localStorage;
   source = 'https://jsonplaceholder.typicode.com/todos/1';
+  data = null;
   constructor(props) {
     super(props);
     this.state = {
@@ -12,8 +13,15 @@ class App extends Component {
   }
 
   getData = () => {
+    if (this.data) {
+      this.setState({
+        data: this.data
+      });
+      return;
+    }
     var localData = this.fetchDataFromLocal();
     if (localData) {
+      this.data = localData;
       this.setState({
         data: localData
       });
@@ -22,6 +30,7 @@ class App extends Component {
       .then(res => res.json())
       .then(
         (result => {
+          this.data = result;
           this.storage.setItem(this.source, JSON.stringify(result));
           this.setState({
             data: result
@@ -37,8 +46,10 @@ class App extends Component {
   }
 
   getDataFromLocal = () => {
+    var localData = this.fetchDataFromLocal();
+    this.data = localData;
     this.setState({
-      data: this.fetchDataFromLocal()
+      data: localData
     });
   }
 
