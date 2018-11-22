@@ -10,10 +10,13 @@ class App extends Component {
   }
 
   getData = () => {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
+    var storage = localStorage || window.localStorage;
+    var source = 'https://jsonplaceholder.typicode.com/todos/1';
+    fetch(source)
       .then(res => res.json())
       .then(
         (result => {
+          storage.setItem(source, JSON.stringify(result));
           this.setState({
             data: result
           });
