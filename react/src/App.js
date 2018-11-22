@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  storage = localStorage || window.localStorage;
+  source = 'https://jsonplaceholder.typicode.com/todos/1';
   constructor(props) {
     super(props);
     this.state = {
@@ -10,13 +12,11 @@ class App extends Component {
   }
 
   getData = () => {
-    var storage = localStorage || window.localStorage;
-    var source = 'https://jsonplaceholder.typicode.com/todos/1';
-    fetch(source)
+    fetch(this.source)
       .then(res => res.json())
       .then(
         (result => {
-          storage.setItem(source, JSON.stringify(result));
+          this.storage.setItem(this.source, JSON.stringify(result));
           this.setState({
             data: result
           });
@@ -29,10 +29,17 @@ class App extends Component {
       )
   }
 
+  getDataFromLocal = () => {
+    this.setState({
+      data: JSON.parse(this.storage.getItem(this.source))
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <button onClick={this.getData}>Get Data</button>
+        <button onClick={this.getDataFromLocal}>Get Data from local</button>
         <ul>
           <li>id: {this.state.data.id}</li>
           <li>title: {this.state.data.title}</li>
