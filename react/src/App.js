@@ -12,7 +12,13 @@ class App extends Component {
   }
 
   getData = () => {
-    fetch(this.source)
+    var localData = this.fetchDataFromLocal();
+    if (localData) {
+      this.setState({
+        data: localData
+      });
+    } else {
+      fetch(this.source)
       .then(res => res.json())
       .then(
         (result => {
@@ -27,12 +33,17 @@ class App extends Component {
           });
         })
       )
+    }
   }
 
   getDataFromLocal = () => {
     this.setState({
-      data: JSON.parse(this.storage.getItem(this.source))
+      data: this.fetchDataFromLocal()
     });
+  }
+
+  fetchDataFromLocal = () => {
+    return JSON.parse(this.storage.getItem(this.source));
   }
 
   render() {
