@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { DataService, Todo } from './data/data.service';
 
 @Component({
@@ -7,17 +8,26 @@ import { DataService, Todo } from './data/data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  data: Todo;
+  data$: Observable<Todo>;
+  lastDuration$: Subject<number>;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+    this.lastDuration$ = this.dataService.lastDuration$;
+  }
 
   getData() {
-    this.dataService.getData().subscribe((data: Todo) => {
-      this.data = data;
-    });
+    this.data$ = this.dataService.getData()
+  }
+
+  getDataFromMemory() {
+    this.data$ = this.dataService.getDataFromMemory();
   }
 
   getDataFromLocal() {
-    this.data = this.dataService.getDataFromLocal();
+    this.data$ = this.dataService.getDataFromLocal();
+  }
+
+  getDataFromRemote() {
+    this.data$ = this.dataService.getDataFromRemote();
   }
 }

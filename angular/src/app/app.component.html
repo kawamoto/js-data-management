@@ -1,9 +1,14 @@
 <button (click)='getData()'>Get Data</button>
+<button (click)='getDataFromMemory()'>Get Data from memory</button>
 <button (click)='getDataFromLocal()'>Get Data from local</button>
+<button (click)='getDataFromRemote()'>Get Data from remote</button>
 <ul>
   <li>
-    {{ data | json }}
+    {{ data$ | async | json }}
   </li>
 </ul>
 
+<div>
+  duration {{ lastDuration$ | async}} ms
+</div>
 <router-outlet></router-outlet>
