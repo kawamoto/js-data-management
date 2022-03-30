@@ -1,0 +1,6 @@
+<button (click)='getData()'>Get Data</button>
+<ul>
+  <li *ngFor="let todo of todos$ | async">
+    {{ todo | json }}
+  </li>
+</ul>
