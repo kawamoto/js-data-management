@@ -1,0 +1,9 @@
+<button (click)='getData()'>Get Data</button>
+<button (click)='getDataFromMemory()'>Get Data from memory</button>
+<button (click)='getDataFromLocal()'>Get Data from local</button>
+<button (click)='getDataFromRemote()'>Get Data from remote</button>
+<ul>
+  <li>
+    {{ todo$ | async | json }}
+  </li>
+</ul>
