@@ -3,9 +3,10 @@ import { Observable, Subject } from 'rxjs';
 import { DataService, Todo } from './data/data.service';
 
 @Component({
-  selector: 'app-plain',
-  templateUrl: './plain.component.html',
-  styleUrls: []
+    selector: 'app-plain',
+    templateUrl: './plain.component.html',
+    styleUrls: [],
+    standalone: false
 })
 export class PlainComponent {
   data$: Observable<Todo>;

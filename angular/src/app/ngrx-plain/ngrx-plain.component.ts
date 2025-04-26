@@ -4,9 +4,10 @@ import { getTodo, getTodoFromLocal, getTodoFromMemory, getTodoFromRemote } from 
 import { selectTodo } from './state/todo.reducer';
 
 @Component({
-  selector: 'app-ngrx-plain',
-  templateUrl: './ngrx-plain.component.html',
-  styleUrls: []
+    selector: 'app-ngrx-plain',
+    templateUrl: './ngrx-plain.component.html',
+    styleUrls: [],
+    standalone: false
 })
 export class NgrxPlainComponent {
   todo$ = this.store.select(selectTodo)

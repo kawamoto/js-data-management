@@ -4,9 +4,10 @@ import { selectAllTodos } from './state/todo.reducer';
 import { getTodo, getTodoFromLocal, getTodoFromMemory, getTodoFromRemote } from './state/todo.actions';
 
 @Component({
-  selector: 'app-ngrx-entity',
-  templateUrl: './ngrx-entity.component.html',
-  styleUrls: []
+    selector: 'app-ngrx-entity',
+    templateUrl: './ngrx-entity.component.html',
+    styleUrls: [],
+    standalone: false
 })
 export class NgrxEntityComponent {
   todos$ = this.store.select(selectAllTodos)

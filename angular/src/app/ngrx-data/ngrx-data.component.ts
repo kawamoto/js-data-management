@@ -4,9 +4,10 @@ import { Todo } from './todo.model';
 import { TodoService } from './todo.service';
 
 @Component({
-  selector: 'app-ngrx-data',
-  templateUrl: './ngrx-data.component.html',
-  styleUrls: []
+    selector: 'app-ngrx-data',
+    templateUrl: './ngrx-data.component.html',
+    styleUrls: [],
+    standalone: false
 })
 export class NgrxDataComponent {
   todos$: Observable<Todo[]>
