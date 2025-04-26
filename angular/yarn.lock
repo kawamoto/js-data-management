@@ -1899,47 +1899,38 @@
     "@napi-rs/nice-win32-ia32-msvc" "1.0.1"
     "@napi-rs/nice-win32-x64-msvc" "1.0.1"
 
-"@ngrx/component-store@^17.2.0":
-  version "17.2.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/component-store/-/component-store-17.2.0.tgz#441c02be3dd5dc9ef98c95a1a1c12656e2e47c4f"
-  integrity sha512-ywhyoZpkbVIY1t5zf7xfWLGkY0A/fQdMjPehHloDI6bRLrmbllBhQRazwZ+FAGIi2myx1+mGcmAc6FbtIikedA==
-  dependencies:
-    "@ngrx/operators" "17.0.0-beta.0"
-    tslib "^2.0.0"
-
-"@ngrx/data@^17.2.0":
-  version "17.2.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/data/-/data-17.2.0.tgz#5fc65c8a4316753b25eca4a938d08d7093a98696"
-  integrity sha512-6As08WhrGmZ4VJh98R7FgjEZN5SsRd3p2QrZsMzrfZrBRTh/uPbS6oCtF8w+FAj1/mS260u0SLKTvL3Bz0vCIw==
+"@ngrx/component-store@^18.1.1":
+  version "18.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/component-store/-/component-store-18.1.1.tgz#7bc4cfbeebe56464e941f57a04d8a4402c4ec903"
+  integrity sha512-+FDd44D+unx/eE/7qCyK1IDsTu8503JOnj3lEhL9f9TDmE4arDNqeNx/8Sh3V3HDkH7mVC9iV0c538ACGlvWIA==
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/effects@^17.2.0":
-  version "17.2.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-17.2.0.tgz#37cec0b696cd7b14600f64e2ed0d9e47f5de10f1"
-  integrity sha512-tXDJNsuBtbvI/7+vYnkDKKpUvLbopw1U5G6LoPnKNrbTPsPcUGmCqF5Su/ZoRN3BhXjt2j+eoeVdpBkxdxMRgg==
-  dependencies:
-    "@ngrx/operators" "17.0.0-beta.0"
-    tslib "^2.0.0"
-
-"@ngrx/entity@^17.2.0":
-  version "17.2.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/entity/-/entity-17.2.0.tgz#5b9a01bd237f247a9901824824352c7e09c1bbeb"
-  integrity sha512-epXgojGXCrVMNrFdv60704iRUU+pYkE1qHBppP/wqKbZZIZHaagsg2jy8/ptDP7U3udvVq0z9suc1s+zpmL2EA==
+"@ngrx/data@^18.1.1":
+  version "18.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/data/-/data-18.1.1.tgz#b28a677ca835480fe21b9ad7f7f856cb0c1f7155"
+  integrity sha512-OtOFLHtlLnLGP4cZJxJ83XFzsCK2naNwf7W+qh1avK6ULQL/nFZETYv8KohugLis4nwHS6vxwDEBkLQKauoKLw==
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/operators@17.0.0-beta.0":
-  version "17.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/operators/-/operators-17.0.0-beta.0.tgz#030486f3a610fa919d2b155aad3bc7b4c708550d"
-  integrity sha512-EbO8AONuQ6zo2v/mPyBOi4y0CTAp1x4Z+bx7ZF+Pd8BL5ma53BTCL1TmzaeK5zPUe0yApudLk9/ZbHXPnVox5A==
+"@ngrx/effects@^18.1.1":
+  version "18.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-18.1.1.tgz#df51cc2874e2470bfe073aa3e01f317977d8fd49"
+  integrity sha512-XXob8kYEvYMaZwgHtrrTW0XZargbu5PloEpNHLnzB8jPk0yWEw6keryxaF09Ylws1779MWvMmF/YP2rPl04nHQ==
   dependencies:
-    tslib "^2.3.0"
+    tslib "^2.0.0"
 
-"@ngrx/store@^17.2.0":
-  version "17.2.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-17.2.0.tgz#d1a588cd8bae18a190bb71582f07e992406a76fa"
-  integrity sha512-7wKgZ59B/6yQSvvsU0DQXipDqpkAXv7LwcXLD5Ww7nvqN0fQoRPThMh4+Wv55DCJhE0bQc1NEMciLA47uRt7Wg==
+"@ngrx/entity@^18.1.1":
+  version "18.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/entity/-/entity-18.1.1.tgz#9ca089080a2e684fd4955d3a6ad90047539b97ba"
+  integrity sha512-oRt/wG+szR4lMvMut16uWfbMD2CnOMscnQIbU+lcOs5+UDOzr4aHGBVpErzcoVWSTp/sl7x02j+2dto5NQZWoA==
+  dependencies:
+    tslib "^2.0.0"
+
+"@ngrx/store@^18.1.1":
+  version "18.1.1"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-18.1.1.tgz#e189967bd8d385ea48e14a7d96542cbf062e8382"
+  integrity sha512-K0v1akJ2sEnIeb1AUA064+ksgRgbMgVG9HbSsLBxENbFjK2ZvKRxo1bpOw6WHW9+hyDTlhZGl7+gUtjmo3497g==
   dependencies:
     tslib "^2.0.0"
 
