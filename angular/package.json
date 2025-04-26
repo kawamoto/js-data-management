@@ -19,16 +19,16 @@
     "@angular/platform-browser": "^19.2.8",
     "@angular/platform-browser-dynamic": "^19.2.8",
     "@angular/router": "^19.2.8",
-    "@ngrx/component-store": "^18.1.1",
-    "@ngrx/data": "^18.1.1",
-    "@ngrx/effects": "^18.1.1",
-    "@ngrx/entity": "^18.1.1",
-    "@ngrx/store": "^18.1.1",
+    "@ngrx/component-store": "^19.1.0",
+    "@ngrx/data": "^19.1.0",
+    "@ngrx/effects": "^19.1.0",
+    "@ngrx/entity": "^19.1.0",
+    "@ngrx/store": "^19.1.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.6.7",
     "tslib": "^2.0.0",
     "zone.js": "~0.15.0",
-    "@ngrx/operators": "^18.0.0"
+    "@ngrx/operators": "^19.1.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.9",
