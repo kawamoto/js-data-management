@@ -5,6 +5,6 @@ import { NgrxDataRoutingModule } from './ngrx-data-routing.module';
 import { NgrxDataComponent } from './ngrx-data.component';
 import { TodoService } from './todo.service';
 
-@NgModule({ declarations: [NgrxDataComponent], imports: [CommonModule,
-        NgrxDataRoutingModule], providers: [TodoService, provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({ imports: [CommonModule,
+        NgrxDataRoutingModule, NgrxDataComponent], providers: [TodoService, provideHttpClient(withInterceptorsFromDi())] })
 export class NgrxDataModule { }

@@ -9,8 +9,8 @@ import { TodoEffects } from './state/todo.effects';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TodoService } from './state/todo.service';
 
-@NgModule({ declarations: [NgrxEntityComponent], imports: [CommonModule,
+@NgModule({ imports: [CommonModule,
         NgrxEntityRoutingModule,
         StoreModule.forFeature(todoFeature),
-        EffectsModule.forFeature([TodoEffects])], providers: [TodoService, provideHttpClient(withInterceptorsFromDi())] })
+        EffectsModule.forFeature([TodoEffects]), NgrxEntityComponent], providers: [TodoService, provideHttpClient(withInterceptorsFromDi())] })
 export class NgrxEntityModule { }

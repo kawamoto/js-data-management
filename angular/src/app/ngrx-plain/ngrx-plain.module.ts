@@ -9,8 +9,8 @@ import { TodoService } from './state/todo.service';
 import { EffectsModule } from '@ngrx/effects';
 import { TodoEffects } from './state/todo.effects';
 
-@NgModule({ declarations: [NgrxPlainComponent], imports: [CommonModule,
+@NgModule({ imports: [CommonModule,
         NgrxPlainRoutingModule,
         StoreModule.forFeature(todoFeature),
-        EffectsModule.forFeature([TodoEffects])], providers: [TodoService, provideHttpClient(withInterceptorsFromDi())] })
+        EffectsModule.forFeature([TodoEffects]), NgrxPlainComponent], providers: [TodoService, provideHttpClient(withInterceptorsFromDi())] })
 export class NgrxPlainModule { }
