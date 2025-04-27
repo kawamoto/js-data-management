@@ -28,21 +28,21 @@ class App extends Component {
       });
     } else {
       fetch(this.source)
-      .then(res => res.json())
-      .then(
-        (result => {
-          this.data = result;
-          this.storage.setItem(this.source, JSON.stringify(result));
-          this.setState({
-            data: result
-          });
-        }),
-        (error => {
-          this.setState({
-            data: {}
-          });
-        })
-      )
+        .then(res => res.json())
+        .then(
+          (result => {
+            this.data = result;
+            this.storage.setItem(this.source, JSON.stringify(result));
+            this.setState({
+              data: result
+            });
+          }),
+          (error => {
+            this.setState({
+              data: {}
+            });
+          })
+        )
     }
   }
 

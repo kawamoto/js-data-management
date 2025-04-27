@@ -6,18 +6,11 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { todoFeature } from './state/todo.reducer';
 import { TodoEffects } from './state/todo.effects';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TodoService } from './state/todo.service';
 
-@NgModule({
-  imports: [
-    CommonModule,
-    NgrxEntityRoutingModule,
-    HttpClientModule,
-    StoreModule.forFeature(todoFeature),
-    EffectsModule.forFeature([TodoEffects])
-  ],
-  providers: [TodoService],
-  declarations: [NgrxEntityComponent]
-})
+@NgModule({ imports: [CommonModule,
+        NgrxEntityRoutingModule,
+        StoreModule.forFeature(todoFeature),
+        EffectsModule.forFeature([TodoEffects]), NgrxEntityComponent], providers: [TodoService, provideHttpClient(withInterceptorsFromDi())] })
 export class NgrxEntityModule { }

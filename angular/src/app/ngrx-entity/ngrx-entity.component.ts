@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectAllTodos } from './state/todo.reducer';
 import { getTodo, getTodoFromLocal, getTodoFromMemory, getTodoFromRemote } from './state/todo.actions';
+import { NgFor, AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-ngrx-entity',
-  templateUrl: './ngrx-entity.component.html',
-  styleUrls: []
+    selector: 'app-ngrx-entity',
+    templateUrl: './ngrx-entity.component.html',
+    styleUrls: [],
+    imports: [NgFor, AsyncPipe, JsonPipe]
 })
 export class NgrxEntityComponent {
   todos$ = this.store.select(selectAllTodos)
