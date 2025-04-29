@@ -12,7 +12,7 @@ export class TodoEffects {
       ofType(getTodo),
       mergeMap(() => this.todoService.getData()
         .pipe(
-          map(todo => (setTodo({todo}))),
+          map(todo => (setTodo({ todo }))),
           catchError(() => EMPTY)
         ))
     )
@@ -23,10 +23,10 @@ export class TodoEffects {
       ofType(getTodoFromMemory),
       mergeMap(() => this.todoService.getDataFromMemory()
         .pipe(
-          map(todo => (setTodo({todo}))),
+          map(todo => (setTodo({ todo }))),
           catchError(() => EMPTY)
         ))
-      )
+    )
   });
 
   loadTodoFromLocal$ = createEffect(() => {
@@ -34,10 +34,10 @@ export class TodoEffects {
       ofType(getTodoFromLocal),
       mergeMap(() => this.todoService.getDataFromLocal()
         .pipe(
-          map(todo => (setTodo({todo}))),
+          map(todo => (setTodo({ todo }))),
           catchError(() => EMPTY)
         ))
-      )
+    )
   });
 
   loadTodoFromRemote$ = createEffect(() => {
@@ -45,14 +45,14 @@ export class TodoEffects {
       ofType(getTodoFromRemote),
       mergeMap(() => this.todoService.getDataFromRemote()
         .pipe(
-          map(todo => (setTodo({todo}))),
+          map(todo => (setTodo({ todo }))),
           catchError(() => EMPTY)
         ))
-      )
+    )
   });
 
   constructor(
     private actions$: Actions,
     private todoService: TodoService
-  ) {}
+  ) { }
 }

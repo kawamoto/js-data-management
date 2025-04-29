@@ -4,7 +4,7 @@ import { Todo } from './todo.model';
 import * as TodoActions from './todo.actions';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
-interface State extends EntityState<Todo>{}
+interface State extends EntityState<Todo> { }
 export const adapter: EntityAdapter<Todo> = createEntityAdapter<Todo>();
 
 const initialState: State = adapter.getInitialState();

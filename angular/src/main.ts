@@ -24,9 +24,9 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-    providers: [
-        importProvidersFrom(BrowserModule, AppRoutingModule, StoreModule.forRoot({}, {}), EffectsModule.forRoot([]), EntityDataModule.forRoot(entityConfig)),
-        DataService, { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }, provideHttpClient(withInterceptorsFromDi())
-    ]
+  providers: [
+    importProvidersFrom(BrowserModule, AppRoutingModule, StoreModule.forRoot({}, {}), EffectsModule.forRoot([]), EntityDataModule.forRoot(entityConfig)),
+    DataService, { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }, provideHttpClient(withInterceptorsFromDi())
+  ]
 })
   .catch(err => console.error(err));

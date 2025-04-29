@@ -5,16 +5,16 @@ import { getTodo, getTodoFromLocal, getTodoFromMemory, getTodoFromRemote } from 
 import { NgFor, AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-ngrx-entity',
-    templateUrl: './ngrx-entity.component.html',
-    styleUrls: [],
-    imports: [NgFor, AsyncPipe, JsonPipe]
+  selector: 'app-ngrx-entity',
+  templateUrl: './ngrx-entity.component.html',
+  styleUrls: [],
+  imports: [NgFor, AsyncPipe, JsonPipe]
 })
 export class NgrxEntityComponent {
   todos$ = this.store.select(selectAllTodos)
   constructor(
     private store: Store
-  ) {}
+  ) { }
 
   getData() {
     this.store.dispatch(getTodo())

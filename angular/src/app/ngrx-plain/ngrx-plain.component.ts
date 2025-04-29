@@ -5,16 +5,16 @@ import { selectTodo } from './state/todo.reducer';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-ngrx-plain',
-    templateUrl: './ngrx-plain.component.html',
-    styleUrls: [],
-    imports: [AsyncPipe, JsonPipe]
+  selector: 'app-ngrx-plain',
+  templateUrl: './ngrx-plain.component.html',
+  styleUrls: [],
+  imports: [AsyncPipe, JsonPipe]
 })
 export class NgrxPlainComponent {
   todo$ = this.store.select(selectTodo)
   constructor(
     private store: Store
-  ) {}
+  ) { }
 
   getData() {
     this.store.dispatch(getTodo())

@@ -5,10 +5,10 @@ import { TodoService } from './todo.service';
 import { NgFor, AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-ngrx-data',
-    templateUrl: './ngrx-data.component.html',
-    styleUrls: [],
-    imports: [NgFor, AsyncPipe, JsonPipe]
+  selector: 'app-ngrx-data',
+  templateUrl: './ngrx-data.component.html',
+  styleUrls: [],
+  imports: [NgFor, AsyncPipe, JsonPipe]
 })
 export class NgrxDataComponent {
   todos$: Observable<Todo[]>
