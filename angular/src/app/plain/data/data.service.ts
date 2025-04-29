@@ -9,7 +9,7 @@ export class DataService {
   source = 'https://jsonplaceholder.typicode.com/todos/1';
   data: Todo;
   lastDuration$ = new Subject<number>();
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getData(): Observable<Todo> {
     if (this.data) {
@@ -42,7 +42,7 @@ export class DataService {
 
   private fetchDataFromLocal() {
     const data = JSON.parse(this.storage.getItem(this.source));
-    if(data) {
+    if (data) {
       this.data = data;
       return of(data);
     } else {

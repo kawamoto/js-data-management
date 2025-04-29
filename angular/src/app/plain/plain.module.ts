@@ -5,6 +5,9 @@ import { PlainRoutingModule } from './plain-routing.module';
 import { PlainComponent } from './plain.component';
 import { DataService } from './data/data.service';
 
-@NgModule({ imports: [CommonModule,
-        PlainRoutingModule, PlainComponent], providers: [DataService, provideHttpClient(withInterceptorsFromDi())] })
+@NgModule(
+  {
+    imports: [CommonModule,
+      PlainRoutingModule, PlainComponent], providers: [DataService, provideHttpClient(withInterceptorsFromDi())]
+  })
 export class PlainModule { }

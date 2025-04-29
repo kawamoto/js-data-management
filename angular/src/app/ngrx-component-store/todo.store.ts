@@ -19,7 +19,7 @@ export interface TodoState {
 export class TodoStore extends ComponentStore<TodoState> {
 
   constructor(private readonly todoService: TodoService) {
-    super({todo:null});
+    super({ todo: null });
   }
 
   readonly getTodo = this.effect((id$: Observable<number>) => {
