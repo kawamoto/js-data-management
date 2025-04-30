@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { DataService, Todo } from './data/data.service';
-import { AsyncPipe, JsonPipe } from '@angular/common';
+import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-plain',
   templateUrl: './plain.component.html',
   styleUrls: [],
-  imports: [AsyncPipe, JsonPipe]
+  imports: [CommonModule, AsyncPipe, JsonPipe],
+  providers: [DataService],
 })
 export class PlainComponent {
   data$: Observable<Todo>;
