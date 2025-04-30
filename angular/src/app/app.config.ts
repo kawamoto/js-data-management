@@ -4,8 +4,8 @@ import { routes } from "./app.routes";
 import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { DefaultDataServiceConfig, EntityDataModule } from "@ngrx/data";
-import { EffectsModule } from "@ngrx/effects";
-import { StoreModule } from "@ngrx/store";
+import { EffectsModule, provideEffects } from "@ngrx/effects";
+import { provideStore, StoreModule } from "@ngrx/store";
 import { entityConfig } from "./entity-metadata";
 import { DataService } from "./plain/data/data.service";
 
@@ -16,7 +16,9 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    importProvidersFrom(BrowserModule, StoreModule.forRoot({}, {}), EffectsModule.forRoot([]), EntityDataModule.forRoot(entityConfig)),
+    provideStore(),
+    provideEffects(),
+    importProvidersFrom(BrowserModule, EntityDataModule.forRoot(entityConfig)),
     DataService, { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }, provideHttpClient(withInterceptorsFromDi())
   ]
 }

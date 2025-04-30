@@ -8,7 +8,8 @@ import { NgFor, AsyncPipe, JsonPipe } from '@angular/common';
   selector: 'app-ngrx-data',
   templateUrl: './ngrx-data.component.html',
   styleUrls: [],
-  imports: [NgFor, AsyncPipe, JsonPipe]
+  imports: [NgFor, AsyncPipe, JsonPipe],
+  providers: [TodoService],
 })
 export class NgrxDataComponent {
   todos$: Observable<Todo[]>
