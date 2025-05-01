@@ -1951,6 +1951,13 @@
   dependencies:
     tslib "^2.3.0"
 
+"@ngrx/signals@^19.1.0":
+  version "19.1.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/signals/-/signals-19.1.0.tgz#1ff62c5c019f08e1a37692e077f46832570871ba"
+  integrity sha512-v8sbb+Iox9kdIaKbFgt4Z1W+NxzIU4+g+6qQU6/c27UmtQXv0s1zUKKofPRK0qwkaZzNWkxNToxyoE285ukqcQ==
+  dependencies:
+    tslib "^2.3.0"
+
 "@ngrx/store@^19.1.0":
   version "19.1.0"
   resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-19.1.0.tgz#9a35fe7b327486241157d75341f2de4c08545d53"
