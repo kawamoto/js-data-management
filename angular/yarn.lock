@@ -1908,13 +1908,6 @@
     "@napi-rs/nice-win32-ia32-msvc" "1.0.1"
     "@napi-rs/nice-win32-x64-msvc" "1.0.1"
 
-"@ngrx/component-store@^19.1.0":
-  version "19.1.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/component-store/-/component-store-19.1.0.tgz#23b83174a0f463bbe8773b2461c301cbcf99ea0d"
-  integrity sha512-CYgmYlSWrNEUiP+5LHA05RhEpqkomFv+C3w0GhpcFcK4dYzipZY7BSJLaYdMCM+Q1Ce3FwBkEMgSSUycL0B5zw==
-  dependencies:
-    tslib "^2.0.0"
-
 "@ngrx/data@^19.1.0":
   version "19.1.0"
   resolved "https://registry.yarnpkg.com/@ngrx/data/-/data-19.1.0.tgz#5b88f8c50fb767ecf93005dd9621c6620a920044"
