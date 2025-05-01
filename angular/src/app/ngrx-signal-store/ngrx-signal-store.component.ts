@@ -1,9 +1,10 @@
 import { JsonPipe } from "@angular/common";
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { TodoService } from "./todo.service";
 import { TodoStore } from "./todo.store";
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-ngrx-signal-store',
   template: `
     <button (click)='getData()'>Get Data</button>
