@@ -1908,13 +1908,6 @@
     "@napi-rs/nice-win32-ia32-msvc" "1.0.1"
     "@napi-rs/nice-win32-x64-msvc" "1.0.1"
 
-"@ngrx/component-store@^19.1.0":
-  version "19.1.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/component-store/-/component-store-19.1.0.tgz#23b83174a0f463bbe8773b2461c301cbcf99ea0d"
-  integrity sha512-CYgmYlSWrNEUiP+5LHA05RhEpqkomFv+C3w0GhpcFcK4dYzipZY7BSJLaYdMCM+Q1Ce3FwBkEMgSSUycL0B5zw==
-  dependencies:
-    tslib "^2.0.0"
-
 "@ngrx/data@^19.1.0":
   version "19.1.0"
   resolved "https://registry.yarnpkg.com/@ngrx/data/-/data-19.1.0.tgz#5b88f8c50fb767ecf93005dd9621c6620a920044"
@@ -1948,6 +1941,13 @@
   version "19.1.0"
   resolved "https://registry.yarnpkg.com/@ngrx/operators/-/operators-19.1.0.tgz#269cc90a3cfc40d6858b5f337b3acd56d4ccd830"
   integrity sha512-gpo69FnoAF69X68pk9eWFHB630xqerBYkF68wOFMciLOV2im3b/fAf+0sRvnQJmVtG/8jO0IPVdvLqa1TbWmPA==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngrx/signals@^19.1.0":
+  version "19.1.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/signals/-/signals-19.1.0.tgz#1ff62c5c019f08e1a37692e077f46832570871ba"
+  integrity sha512-v8sbb+Iox9kdIaKbFgt4Z1W+NxzIU4+g+6qQU6/c27UmtQXv0s1zUKKofPRK0qwkaZzNWkxNToxyoE285ukqcQ==
   dependencies:
     tslib "^2.3.0"
 

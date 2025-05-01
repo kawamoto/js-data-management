@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { Todo } from './todo.store';
 
 @Injectable()
