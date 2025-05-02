@@ -1,13 +1,12 @@
-<button (click)='getData()'>Get Data</button>
-<button (click)='getDataFromMemory()'>Get Data from memory</button>
-<button (click)='getDataFromLocal()'>Get Data from local</button>
-<button (click)='getDataFromRemote()'>Get Data from remote</button>
+<button (click)='dataService.getData()'>Get Data</button>
+<button (click)='dataService.getDataFromLocal()'>Get Data from local</button>
+<button (click)='dataService.getDataFromRemote()'>Get Data from remote</button>
 <ul>
   <li>
-    {{ data$ | async | json }}
+    {{ dataService.data() | json }}
   </li>
 </ul>
 
 <div>
-  duration {{ lastDuration$ | async}} ms
+  duration {{ dataService.lastDuration() }} ms
 </div>

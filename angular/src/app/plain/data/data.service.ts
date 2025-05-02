@@ -1,73 +1,64 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
-import { Observable, of, Subject } from 'rxjs';
 
 @Injectable()
 export class DataService {
   storage = localStorage || window.localStorage;
   source = 'https://jsonplaceholder.typicode.com/todos/1';
-  data: Todo;
-  lastDuration$ = new Subject<number>();
-  constructor(private http: HttpClient) { }
 
-  getData(): Observable<Todo> {
-    if (this.data) {
-      return of(this.data);
+  data = signal<Todo | undefined>(undefined);
+  lastDuration = signal<number>(0);
+
+  private _http = inject(HttpClient);
+
+  getData() {
+    if (this.data()) {
+      return;
     }
-    const localData = this.getDataFromLocal();
+
+    const localData = this.fetchDataFromLocal();
     if (localData) {
-      return localData;
+      return;
     }
-    return this.getDataFromRemote();
-  }
 
-  getDataFromMemory() {
-    const start = performance.now()
-    const res = of(this.data);
-    const end = performance.now()
-    const diff = end - start;
-    this.lastDuration$.next(diff);
-    return res;
+    this.fetchDataFromRemote();
   }
 
   getDataFromLocal() {
-    const start = performance.now()
-    const res = this.fetchDataFromLocal()
-    const end = performance.now()
+    const start = performance.now();
+    const res = this.fetchDataFromLocal();
+    const end = performance.now();
     const diff = end - start;
-    this.lastDuration$.next(diff);
+    this.lastDuration.set(diff);
+
     return res;
   }
 
   private fetchDataFromLocal() {
     const data = JSON.parse(this.storage.getItem(this.source));
     if (data) {
-      this.data = data;
-      return of(data);
-    } else {
-      return null;
+      this.data.set(data);
+      return true;
     }
+    return null;
   }
 
-  getDataFromRemote(): Observable<Todo> {
-    const start = performance.now()
-    return this.fetchDataFromRemote().pipe(
-      tap(() => {
-        const end = performance.now()
-        const diff = end - start;
-        this.lastDuration$.next(diff);
-      })
-    )
+  getDataFromRemote() {
+    this.fetchDataFromRemote();
   }
 
   private fetchDataFromRemote() {
-    return this.http.get(this.source).pipe(
-      tap((data: Todo) => {
-        this.storage.setItem(this.source, JSON.stringify(data));
-        this.data = data;
-      })
-    );
+    const start = performance.now();
+
+    this._http.get(this.source).subscribe((data: Todo) => {
+      this.storage.setItem(this.source, JSON.stringify(data));
+      this.data.set(data);
+
+      const end = performance.now();
+      const diff = end - start;
+      this.lastDuration.set(diff);
+    });
+    return true;
   }
 }
 
