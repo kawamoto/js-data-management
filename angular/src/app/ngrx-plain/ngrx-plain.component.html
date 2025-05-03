@@ -4,6 +4,6 @@
 <button (click)='getDataFromRemote()'>Get Data from remote</button>
 <ul>
   <li>
-    {{ todo$ | async | json }}
+    {{ todo() | json }}
   </li>
 </ul>

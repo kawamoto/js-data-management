@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getTodo, getTodoFromLocal, getTodoFromMemory, getTodoFromRemote } from './state/todo-page.actions';
 import { selectTodo } from './state/todo.reducer';
@@ -11,10 +11,9 @@ import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
   imports: [CommonModule, AsyncPipe, JsonPipe]
 })
 export class NgrxPlainComponent {
-  todo$ = this.store.select(selectTodo)
-  constructor(
-    private store: Store
-  ) { }
+  private store = inject(Store);
+
+  todo = this.store.selectSignal(selectTodo)
 
   getData() {
     this.store.dispatch(getTodo())
