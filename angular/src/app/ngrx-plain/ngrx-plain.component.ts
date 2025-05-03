@@ -2,13 +2,13 @@ import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getTodo, getTodoFromLocal, getTodoFromMemory, getTodoFromRemote } from './state/todo-page.actions';
 import { selectTodo } from './state/todo.reducer';
-import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-ngrx-plain',
   templateUrl: './ngrx-plain.component.html',
   styleUrls: [],
-  imports: [CommonModule, AsyncPipe, JsonPipe]
+  imports: [CommonModule, JsonPipe]
 })
 export class NgrxPlainComponent {
   private store = inject(Store);
