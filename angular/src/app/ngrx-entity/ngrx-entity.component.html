@@ -3,7 +3,7 @@
 <button (click)='getDataFromLocal()'>Get Data from local</button>
 <button (click)='getDataFromRemote()'>Get Data from remote</button>
 <ul>
-  <li *ngFor="let todo of todos$ | async">
-    {{ todo | json }}
-  </li>
+  @for (todo of todos(); track todo.id) {
+  <li>{{ todo | json }}</li>
+  }
 </ul>
