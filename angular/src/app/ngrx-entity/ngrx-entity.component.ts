@@ -1,20 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectAllTodos } from './state/todo.reducer';
 import { getTodo, getTodoFromLocal, getTodoFromMemory, getTodoFromRemote } from './state/todo.actions';
-import { NgFor, AsyncPipe, JsonPipe } from '@angular/common';
+import { NgFor, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-ngrx-entity',
   templateUrl: './ngrx-entity.component.html',
   styleUrls: [],
-  imports: [NgFor, AsyncPipe, JsonPipe]
+  imports: [JsonPipe]
 })
 export class NgrxEntityComponent {
-  todos$ = this.store.select(selectAllTodos)
-  constructor(
-    private store: Store
-  ) { }
+  private store = inject(Store);
+
+  todos = this.store.selectSignal(selectAllTodos)
 
   getData() {
     this.store.dispatch(getTodo())
