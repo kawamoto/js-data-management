@@ -1,25 +1,22 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Todo } from './todo.model';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TodoService } from './todo.service';
-import { NgFor, AsyncPipe, JsonPipe } from '@angular/common';
+import { JsonPipe } from '@angular/common';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-ngrx-data',
   templateUrl: './ngrx-data.component.html',
   styleUrls: [],
-  imports: [NgFor, AsyncPipe, JsonPipe],
+  imports: [JsonPipe],
   providers: [TodoService],
 })
 export class NgrxDataComponent {
-  todos$: Observable<Todo[]>
-  constructor(
-    private todoService: TodoService
-  ) {
-    this.todos$ = this.todoService.entities$
-  }
+  private _todoService = inject(TodoService)
+
+  todos = toSignal(this._todoService.entities$)
 
   getData() {
-    this.todoService.getAll()
+    this._todoService.getAll()
   }
 }
