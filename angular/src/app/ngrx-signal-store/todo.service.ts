@@ -1,16 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Todo } from './todo.store';
 
 @Injectable()
 export class TodoService {
+  private http = inject(HttpClient);
+
   storage = localStorage || window.localStorage;
   source = 'https://jsonplaceholder.typicode.com/todos/1';
   data: Todo;
   lastDuration$ = new Subject<number>();
-  constructor(private http: HttpClient) { }
 
   getData(): Observable<Todo> {
     if (this.data) {
