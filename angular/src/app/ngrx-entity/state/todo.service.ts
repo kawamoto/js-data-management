@@ -9,7 +9,7 @@ export class TodoService {
   private http = inject(HttpClient);
   storage = localStorage || window.localStorage;
   source = 'https://jsonplaceholder.typicode.com/todos/1';
-  data: Todo;
+  data?: Todo;
   lastDuration$ = new Subject<number>();
 
   getData(): Observable<Todo> {
@@ -34,7 +34,7 @@ export class TodoService {
 
   getDataFromLocal() {
     const start = performance.now()
-    const res = this.fetchDataFromLocal()
+    const res = this.fetchDataFromLocal() ?? of(undefined)
     const end = performance.now()
     const diff = end - start;
     this.lastDuration$.next(diff);
@@ -42,7 +42,10 @@ export class TodoService {
   }
 
   private fetchDataFromLocal() {
-    const data = JSON.parse(this.storage.getItem(this.source));
+    const source = this.storage.getItem(this.source)
+    if (!source) { return }
+
+    const data = JSON.parse(source);
     if (data) {
       this.data = data;
       return of(data);
@@ -63,7 +66,7 @@ export class TodoService {
   }
 
   private fetchDataFromRemote() {
-    return this.http.get(this.source).pipe(
+    return this.http.get<Todo>(this.source).pipe(
       tap((data: Todo) => {
         this.storage.setItem(this.source, JSON.stringify(data));
         this.data = data;

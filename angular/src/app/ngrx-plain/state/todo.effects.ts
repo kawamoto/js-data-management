@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
-import { map, mergeMap, catchError } from 'rxjs/operators';
+import { map, mergeMap, catchError, filter } from 'rxjs/operators';
 import { getTodo, getTodoFromLocal, getTodoFromMemory, getTodoFromRemote, setTodo } from './todo-page.actions';
 import { TodoService } from './todo.service';
 
@@ -26,6 +26,7 @@ export class TodoEffects {
       ofType(getTodoFromMemory),
       mergeMap(() => this.todoService.getDataFromMemory()
         .pipe(
+          filter(todo => !!todo),
           map(todo => (setTodo({ todo }))),
           catchError(() => EMPTY)
         ))

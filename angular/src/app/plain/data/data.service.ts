@@ -35,7 +35,10 @@ export class DataService {
   }
 
   private fetchDataFromLocal() {
-    const data = JSON.parse(this.storage.getItem(this.source));
+    const source = this.storage.getItem(this.source)
+    if (!source) { return }
+
+    const data = JSON.parse(source);
     if (data) {
       this.data.set(data);
       return true;
@@ -50,7 +53,7 @@ export class DataService {
   private fetchDataFromRemote() {
     const start = performance.now();
 
-    this._http.get(this.source).subscribe((data: Todo) => {
+    this._http.get<Todo>(this.source).subscribe((data: Todo) => {
       this.storage.setItem(this.source, JSON.stringify(data));
       this.data.set(data);
 
