@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { DataService } from './data/data.service';
 import { CommonModule, JsonPipe } from '@angular/common';
 

@@ -1,7 +1,7 @@
 import { ApplicationConfig, importProvidersFrom } from "@angular/core";
 import { provideRouter } from "@angular/router";
 import { routes } from "./app.routes";
-import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { DefaultDataServiceConfig, provideEntityData, withEffects } from "@ngrx/data";
 import { provideEffects } from "@ngrx/effects";
@@ -20,6 +20,6 @@ export const appConfig: ApplicationConfig = {
     provideEffects(),
     provideEntityData(entityConfig, withEffects()),
     importProvidersFrom(BrowserModule),
-    DataService, { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }, provideHttpClient(withInterceptorsFromDi())
+    DataService, { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }, provideHttpClient(withXhr(), withInterceptorsFromDi())
   ]
 }

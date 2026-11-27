@@ -4,7 +4,7 @@ import { Todo } from './todo.model';
 import * as TodoPageActions from './todo-page.actions';
 
 interface State {
-  todo: Todo;
+  todo: Todo | null;
   loading: boolean;
 }
 
