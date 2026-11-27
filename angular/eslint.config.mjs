@@ -12,13 +12,17 @@ const compat = new FlatCompat({
     allConfig: js.configs.all
 });
 
+import angular from 'angular-eslint';
+import ngrx from '@ngrx/eslint-plugin';
+
 export default defineConfig([globalIgnores(["projects/**/*"]), {
     files: ["**/*.ts"],
 
-    extends: compat.extends(
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates",
-    ),
+    extends: [
+        ...angular.configs.tsRecommended,
+    ],
+
+    processor: angular.createProcessor(),
 
     languageOptions: {
         ecmaVersion: 5,
@@ -45,9 +49,9 @@ export default defineConfig([globalIgnores(["projects/**/*"]), {
     },
 }, {
     files: ["**/*.html"],
-    extends: compat.extends("plugin:@angular-eslint/template/recommended"),
+    extends: [...angular.configs.templateRecommended],
     rules: {},
 }, {
     files: ["**/*.ts"],
-    extends: compat.extends("plugin:@ngrx/all"),
+    extends: [...ngrx.configs.all],
 }]);
