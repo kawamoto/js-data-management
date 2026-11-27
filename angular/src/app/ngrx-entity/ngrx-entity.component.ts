@@ -8,7 +8,6 @@ import { JsonPipe } from '@angular/common';
   selector: 'app-ngrx-entity',
   templateUrl: './ngrx-entity.component.html',
   styleUrls: [],
-  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [JsonPipe]
 })
 export class NgrxEntityComponent {

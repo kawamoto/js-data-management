@@ -8,7 +8,6 @@ import { CommonModule, JsonPipe } from '@angular/common';
   selector: 'app-ngrx-plain',
   templateUrl: './ngrx-plain.component.html',
   styleUrls: [],
-  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [CommonModule, JsonPipe]
 })
 export class NgrxPlainComponent {
