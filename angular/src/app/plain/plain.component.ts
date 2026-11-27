@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { DataService } from './data/data.service';
 import { CommonModule, JsonPipe } from '@angular/common';
 
@@ -7,6 +7,7 @@ import { CommonModule, JsonPipe } from '@angular/common';
   templateUrl: './plain.component.html',
   styleUrls: [],
   imports: [CommonModule, JsonPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [DataService],
 })
 export class PlainComponent {

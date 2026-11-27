@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getTodo, getTodoFromLocal, getTodoFromMemory, getTodoFromRemote } from './state/todo-page.actions';
 import { selectTodo } from './state/todo.reducer';
@@ -8,6 +8,7 @@ import { CommonModule, JsonPipe } from '@angular/common';
   selector: 'app-ngrx-plain',
   templateUrl: './ngrx-plain.component.html',
   styleUrls: [],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [CommonModule, JsonPipe]
 })
 export class NgrxPlainComponent {

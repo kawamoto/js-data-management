@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectAllTodos } from './state/todo.reducer';
 import { getTodo, getTodoFromLocal, getTodoFromMemory, getTodoFromRemote } from './state/todo.actions';
@@ -8,6 +8,7 @@ import { JsonPipe } from '@angular/common';
   selector: 'app-ngrx-entity',
   templateUrl: './ngrx-entity.component.html',
   styleUrls: [],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [JsonPipe]
 })
 export class NgrxEntityComponent {
