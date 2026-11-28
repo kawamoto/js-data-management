@@ -1,15 +1,17 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
     "esModuleInterop": true,
     "sourceMap": true,
-    "declaration": false,
     "module": "es2020",
     "moduleResolution": "bundler",
     "experimentalDecorators": true,
     "target": "ES2022",
-    "typeRoots": ["node_modules/@types"],
     "useDefineForClassFields": false
-  }
+  },
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.spec.json" }
+  ]
 }
