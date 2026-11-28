@@ -29,7 +29,7 @@ export default defineConfig([globalIgnores(["projects/**/*"]), {
         sourceType: "script",
 
         parserOptions: {
-            project: ["tsconfig.json", "e2e/tsconfig.json"],
+            project: ["tsconfig.json"],
             createDefaultProgram: true,
         },
     },
